@@ -74,6 +74,48 @@ Mas caso nosso chute super bem embasado não se mostre verdadeiro, teremos que a
 
 Note que só tivemos essa penalidade nos casos onde não acertamos as previsões, esse caso já é consideravelmente melhor do que simplesmente atrasar todos os desvios, mas como veremos no futuro ainda podemos melhorar isso com previsores dinâmicos. Além disso, para implementarmos um previsor de branchs mesmo que estático, precisamos garantir que o hardware tem a capacidade de anular a instrução carregada de forma equivocada.
 
+### Previsão dinâmica
+
+Apesar de previsores estáticos serem melhores do que previsor nenhum, ainda temos algum espaço pra melhorar aqui, uma abordagem para esse problema é criar uma estrutura capaz de analisar o resultado de desvios passados e tentar modificar a previsão do programa conforme essa análise. Chamamos isso de previsão dinâmica.
+
+#### _Branch history table_
+
+Uma forma de implementar essa previsão dinânmica é com base em uma _branch history table_, uma estrutura de dados que contém 1 bit para sinalizar desvios tomados e não tomados, endereçada a partir dos bits menos significativos do PC. 
+
+> Por que não utilizar todos os bits do PC para endereçar? Em um PC com 32 bits isso seriam 2^32 endereços, ou 4 GB de memória, algo inconcebível para estar DENTRO do processador.
+
+Começamos com uma hipótese X, ao desviar, caso nossa hipótese de desvio se confirme nós salvamos o bit e segue o jogo. Caso a hipótese esteja equivocada nós invertemos o bit de rearmazenamos ele na tabela, além trocar nossa hipótese para -X no próximo desvio.
+
+Em casos como o seguinte, nossa previsão vai nos salvar muuuuito tempo:
+
+```c
+int i = 0;
+
+while(i < 400) {
+  printf("%d", i);
+}
+```
+
+Como o mesmo laço vai tomar 399 caminhos iguais antes de finalmente tomar um caminho diferente, teremos essa otimização para pelo menos 398 iterações. Mas e em um caso alternado?
+
+```c
+for(int i = 0; i < 400; i++) {
+  if (i % 2 == 0) {
+    printf("Par");
+  } else {
+    printf("Impar");
+  }
+}
+```
+
+Perceba que no caso acima, além do desvio presente na estrutura do laço, também temos um outro desvio interno que irá ser tomado sempre que um contador for ímpar (o que vai acontecer a cada 2 iterações do laço). Como nosso plano era trocar sempre que tivesse errado, vamos errar todas as vezes. Então, existem casos muito ruins para o nosso previsor.
+
+A gente ainda pode dar uma alterada pra melhorar isso, aumentando a tolerância a erros do nosso previsor. Nesse caso, vamos trocar apenas DUAS previsões incorretas. Se você fizer os mesmos exemplos ali de cima vai perceber que melhoramos pra aqueles casos, mas se pensar mais um pouquinho vai achar casos que continuam ruins pro nosso previsor. Quer dizer então que nada dá certo? Que a vida é um erro? Não(sim)! 
+
+Obviamente como esse método se baseia em uma heurística, ele não é perfeito, mas é uma implementação simples de se fazer e relativamente barata. Previsores de desvios são uma grande área de pesquisa da indústria, surgem novos métodos e implementações todo ano e com certeza existem vários mais complexos que o _BHT_.
+
+A eficiência do BHT se mostra melhor em pipelines longos, com mais de 10 estágios. Como no MIPS estamos estudando um pipelinezinho mixuruca com 5 estágios podemos tomar previsões estáticas de desvio não-tomado em grandes penalidades para a performance do processador.
+
 # A estrutura de um _datapath_ com suporte a pipeline
 
 Uma das implementações de _datapath_ para um MIPS 32 que utiliza pipelines é bem parecida com a nossa implementação de MIPS 32 multi/monociclo feita na disciplina de Sistemas Digitais. A diferença principal é a utilização de registradores de sincronização para delimitar cada estágio do pipeline. Esses registradores não são acessíveis para o programador e nem possuem um nome definido no manual, mas são chamados de IF/ID, ID/EX, EX/MEM e MEM/WB pelos autores do livro texto da discplina.
