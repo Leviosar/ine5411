@@ -19,12 +19,18 @@ O LC disponibiliza o cronograma em uma tabela HTML super bizarra então não vou
 
 Notas baseadas majoritariamente em aulas e slides do professor, contém algumas imagéns e esquemáticos que estavam nos slides, outras partes são baseadas no livro texto da disciplina.
 
+- [AEX2 - Introdução a programação de sistemas](./notas/aex2.md)
+- [AEX3 - Instruction set architecture (ISA)](./notas/aex3.md)
+- [AEX4 - Operações lógicas e relacionais](./notas/aex4.md)
+- [AEX10 - Benchmark](./notas/aex10.md)
 - [AEX12 - Montador](./notas/aex12.md)
 - [AEX13.1 - Ligador estático](./notas/aex13.1.md)
 - [AEX13.2 - Ligador dinâmico](./notas/aex13.2.md)
 - [AEX14 - Tratamento de exceções](./notas/aex14.md)
 - [AEX15 - Pipelines](./notas/aex15.md)
 - [AEX16 - Hazards](./notas/aex16.md)
+- [AEX17 - Emissão múltipla](./notas/aex17.md)
+- [AEX27 - Memória virtual](./notas/aex27.md)
 
 ## Material adicional
 
