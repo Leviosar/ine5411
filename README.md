@@ -21,7 +21,9 @@ Notas baseadas majoritariamente em aulas e slides do professor, contém algumas 
 
 - [AEX2 - Introdução a programação de sistemas](./notas/aex2.md)
 - [AEX3 - Instruction set architecture (ISA)](./notas/aex3.md)
-- [AEX4 - Operações lógicas e relacionais](./notas/aex4.md)
+- [AEX4 - Operações lógicas e relacionais](./notas/aex4.1.md)
+- [AEX4 - Jump Address Table (JAT)](./notas/aex4.2.md)
+- [AEX4 - Suporte a procedimentos](./notas/aex5.md)
 - [AEX10 - Benchmark](./notas/aex10.md)
 - [AEX12 - Montador](./notas/aex12.md)
 - [AEX13.1 - Ligador estático](./notas/aex13.1.md)
