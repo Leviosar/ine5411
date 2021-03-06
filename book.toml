@@ -1,0 +1,6 @@
+[book]
+authors = ["João Vitor Maia"]
+language = "pt-br"
+multilingual = false
+src = "./"
+title = "INE5411 - Guia do sobrevivente"
