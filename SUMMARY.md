@@ -2,6 +2,15 @@
 
 Contribuições em [INE5411](https://github.com/Leviosar/ine5411).
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZZ59R7FLW7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZZ59R7FLW7');
+</script>
+
 - [Notas de aulas](./notas/README.md)
     - [Introdução a programação de sistemas](./notas/aex02.md)
     - [Instruction set architecture (ISA)](./notas/aex03.md)
