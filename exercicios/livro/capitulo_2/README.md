@@ -4,7 +4,7 @@
 
 Show how the value `0xabcdef12` would be arranged in memory of a little-endian and a big-endian machine. Assume the data is stored starting at address 0.
 
-*Resposta:*
+**Resposta:**
 
 Na representação little-endian vamos começar endereçando pelo byte menos significativo (12), enquanto no big-endian iremos representar a partir do byte mais significativo (ab)
 
@@ -34,7 +34,7 @@ Translate the following C code to MIPS. Assume that the variables f, g, h, i, an
 B[8] = A[i] + A[j];
 ```
 
-*Resposta:*
+**Resposta:**
 
 ```assembly
 sll $s3, $s3, 2     # Corrige o offset multiplicando por 4
@@ -62,13 +62,13 @@ What is the value of $t0 for the following assembly code?
 add $t0, $s0, $s1
 ```
 
-*Resposta:* o resultado da soma, é `0x150000000`, mas como o registrador representará no máximo 32 bits (ou 8 caracteres hexadecimais), temos `0x5000000`.
+**Resposta:** o resultado da soma, é `0x150000000`, mas como o registrador representará no máximo 32 bits (ou 8 caracteres hexadecimais), temos `0x5000000`.
 
 #### 2.12.2
 
 Is the result in $t0 the desired result, or has there been overflow? 
 
-*Resposta:* houve overflow
+**Resposta:** houve overflow
 
 #### 2.12.3
 
@@ -81,7 +81,7 @@ sub $t0, $s0, $s1
 ` s0 = 1000 0000 0000 0000 0000 0000 0000 0000`
 `~s1 = 0010 1111 1111 1111 1111 1111 1111 1111`
 
-*Resposta:* faremos a conta `$s0 - $s1`, mas na verdade o que queremos é `$s0 + (- $s1)`, e pra isso vamos encontrar o complemento de 2 de `$s1`.
+**Resposta:** faremos a conta `$s0 - $s1`, mas na verdade o que queremos é `$s0 + (- $s1)`, e pra isso vamos encontrar o complemento de 2 de `$s1`.
 
 ```
 1. 1101 0000 0000 0000 0000 0000 0000 0000 # negamos todos os bits
@@ -105,7 +105,7 @@ Convertendo novamente pra hexadecimal temos `0xB000000`
 
 Is the result in $t0 the desired result, or has there been overflow? 
 
-*Resposta:* não houve overflow.
+**Resposta:** não houve overflow.
 
 #### 2.12.5
 
@@ -118,7 +118,7 @@ add $t0, $t0, $s0
 
 Operação: (0x80000000 + 0xD0000000) + 0x80000000
 
-*Resposta:* 
+**Resposta:** 
 ```
 0x80000000
 +
@@ -135,13 +135,13 @@ Operação: (0x80000000 + 0xD0000000) + 0x80000000
 
 Is the result in $t0 the desired result, or has there been overflow?
 
-*Resposta:* houve overflow.
+**Resposta:** houve overflow.
 
 ### 2.14
 
 Provide the type and assembly language instruction for the following binary value: `0000 0010 0001 0000 1000 0000 0010 0000`
 
-*Resposta:*
+**Resposta:**
 
 Podemos olhar para o começo e como os bits de 26-31 são `000000` já sabemos que é uma instrução do tipo R. Vamos então reformatar no formato de uma instrução do tipo R.
 
@@ -155,7 +155,7 @@ Os campos dos três registradores são iguais, e correspondem ao registrador `$1
 
 Provide the type and hexadecimal representation of following instruction: sw $t1, 32($t2)
 
-*Resposta:* 
+**Resposta:** 
 
 Agora temos o caminho inverso, teremos que transformar a instrução completa em binário, para depois transformar em hex. Nesse caso vamos formatar ela como uma instrução do tipo I. Por ser um `sw`, olhando no green sheet vemos que o opcode é `101011`, os registradores também são fáceis de codificar, seus números são respectivamente `$9` e `$10`, gerando `01001` e `01010`. Por último, a constante de deslocamento ocupa 16 bits e nesse caso é o número 32, gerando `0000000000100000` 
 
@@ -173,7 +173,7 @@ Provide the type, assembly language instruction, and binary representation of in
 | ------ | --- | --- | ----- |
 | 0x23   | 0x1 | 0x2 | 0x4   |
 
-*Resposta:*
+**Resposta:**
 
 Primeiro convertemos campo a campo de hexa para binário, levando em consideração que como só foram dados aqueles quatro campos provavelmente é uma instrução do formato I.
 
@@ -191,7 +191,7 @@ Assume that we would like to expand the MIPS register file to 128 registers and 
 
 How this would this affect the size of each of the bit fields in the R-type instructions?
 
-*Resposta:* cada campo de registrador deve poder endereçar cada um dos 128 registradores, isso faz com que precisamos de 7 bits por campo de registrador, aumentando em 2 bits cada campo ou 6 bits no total. Além disso, considerando que precisamos multiplicar o número de instruções por 4, temos que adicionar mais log₂(4) bits ao campo `opcode`, que agora ficará com 8 bits. No final, o tamanho formato de instruções iria de 32 bits para 40 bits.
+**Resposta:** cada campo de registrador deve poder endereçar cada um dos 128 registradores, isso faz com que precisamos de 7 bits por campo de registrador, aumentando em 2 bits cada campo ou 6 bits no total. Além disso, considerando que precisamos multiplicar o número de instruções por 4, temos que adicionar mais log₂(4) bits ao campo `opcode`, que agora ficará com 8 bits. No final, o tamanho formato de instruções iria de 32 bits para 40 bits.
 
 | opcode | rs     | rt     | rd     | shamt  | funct  |
 | ------ | ------ | ------ | ------ | ------ | ------ |
@@ -201,7 +201,7 @@ How this would this affect the size of each of the bit fields in the R-type inst
 
 How this would this affect the size of each of the bit fields in the I-type instructions?
 
-*Resposta:* da mesma forma que no formato R, os campos que referenciam registradores devem ser aumentados para 7 bits, a mesma coisa acontece com o `opcode`. O campo de constante/endereço não precisa ser alterado.
+**Resposta:** da mesma forma que no formato R, os campos que referenciam registradores devem ser aumentados para 7 bits, a mesma coisa acontece com o `opcode`. O campo de constante/endereço não precisa ser alterado.
 
 | opcode | rs     | rt     | const   |
 | ------ | ------ | ------ | ------- |
@@ -211,7 +211,7 @@ How this would this affect the size of each of the bit fields in the I-type inst
 
 How could each of the two proposed changes decrease the size of an MIPS assembly program? On the other hand, how could the proposed change increase the size of an MIPS assembly program?
 
-*Resposta:* 
+**Resposta:** 
 
 - *Diminuir o tamanho*: considerando que teriamos mais registradores, menos operações na pilha seriam feitas, então gastariamos menos instruções para realizar essas operações, resultando em um programa menor. Além disso, com o aumento da variedade de instruções, poderiamos ter novas instruções que realizam em uma única instrução operações que hoje fazemos em duas ou mais, também reduzindo o tamanho do código. Essa última consequência também poderia ser acompanhada de modificações no hardware.
 
@@ -296,6 +296,33 @@ Suppose the program counter (PC) is set to 0x2000 0000. Is it possible to use th
 ```
 A = 0x2000 0000 = 0010 0000 0000 0000 0000 0000 0000 0000
 B = 0x4000 0000 = 0100 0000 0000 0000 0000 0000 0000 0000
+```
+
+**Resposta**: em nenhum dos dois casos é possível, o jump só consegue alterar os 28 LSBs do endereço, então não seria possível alterar os últimos 4 bits que são diferentes nos endereços. Enquanto no Branch, o alcance superior é de + 2^15, não suficiente para chegar no segundo endereço.
+
+### 2.25 
+
+Th e following instruction is not included in the MIPS instruction set:
+
+```assembly
+rpt $t2, loop # if(R[rs]>0) R[rs]=R[rs]−1, PC=PC+4+BranchAddr
+```
+
+#### 2.25.1 
+
+If this instruction were to be implemented in the MIPS instruction set, what is the most appropriate instruction format?
+
+**Resposta**: Formato I.
+
+#### 2.25.2
+
+What is the shortest sequence of MIPS instructions that performs the same operation?
+
+**Resposta**:
+
+```assembly
+addi $t2, $t2, –1
+beq $t2, $0, loop
 ```
 
 ### 2.26 
@@ -389,11 +416,48 @@ Control:
 
 ```
 
+### 2.34 
+
+Translate function f into MIPS assembly language. If you need to use registers $t0 through $t7, use the lower-numbered registers first. Assume the function declaration for func is “int f(int a, int b);”. The code for function f is as follows:
+
+```c
+int f(int a, int b, int c, int d){
+    return func(func(a,b),c+d);
+}
+```
+
+```assembly
+f:
+  # Guarda na pilha os valores de $ra para o retorno
+  # e os valores de $s0 e $s1 que serão usados
+  addi $sp,$sp,-12
+  sw $ra, 8($sp)
+  sw $s1, 4($sp)
+  sw $s0, 0($sp)
+
+  # Coloca os valores recebidos por parâmetro em $s0 e $s1
+  add $s1, $a2, $zero
+  add $s0, $a3, $zero
+  
+  # Chama a função func com os argumentos a e b
+  jal func
+  
+  # Move o retorno da chamada de jal func anterior para o primeiro registrador de parâmetro
+  add $a0, $v0, $zero
+  # Move o valor de c+d ($s0 + $s1) para o segundo registrador de parâmetro
+  add $a1, $s0, $s1
+  # Chama novamente a função
+  jal func
+
+  # Retorna para a chamadora
+  jr $ra
+```
+
 ### 2.39
 
 Write the MIPS assembly code that creates the 32-bit constant `0010 0000 0000 0001 0100 1001 0010 0100` (base two) and stores that value to register $t1.
 
-*Resposta:* essa atribuição precisa ser quebrada em duas instruções, a primeira instrução, `lui`, irá carregar os 16 bits mais significativos da constante no registrador, então convertendo `0010 0000 0000 0001` temos 8193. 
+**Resposta:** essa atribuição precisa ser quebrada em duas instruções, a primeira instrução, `lui`, irá carregar os 16 bits mais significativos da constante no registrador, então convertendo `0010 0000 0000 0001` temos 8193. 
 
 A segunda instrução, vai fazer um or imediato (`ori`) entre o valor atual de $t1 (que possui como 16 bits mais significativos o valor que colocamos na primeira instrução, e como 16 bits menos significativos o valor 0). Como `a or 0 = a`, no final temos a constante de 32 bits no registrador.
 
@@ -406,7 +470,7 @@ ori $t1, $t1, 18724
 
 If the current value of the PC is 0x00000000, can you use a single jump instruction to get to the PC address as shown in Exercise 2.39?
 
-*Resposta:* o valor do exercício 2.39 era `0010 0000 0000 0001 0100 1001 0010 0100`, convertendo pra hexadecimal `0x2001 4924`, um salto de 29 bits, sendo que o valor máximo para o salto do `jump` é de 28 bits, então o endereço serial inalcançável.
+**Resposta:** o valor do exercício 2.39 era `0010 0000 0000 0001 0100 1001 0010 0100`, convertendo pra hexadecimal `0x2001 4924`, um salto de 29 bits, sendo que o valor máximo para o salto do `jump` é de 28 bits, então o endereço serial inalcançável.
 
 Porém, utilizando-se de uma instrução do tipo jump, a `jr`, você pode alcançar os 32 bits de um
 
@@ -414,13 +478,13 @@ Porém, utilizando-se de uma instrução do tipo jump, a `jr`, você pode alcan�
 
 If the current value of the PC is 0x00000600, can you use a single branch instruction to get to the PC address as shown in Exercise 2.39?
 
-*Resposta:* utilizando-se dos mesmos valores, mas dessa vez com o range de 16 bits de um `branch`, também seria impossível alcançar essa instrução.
+**Resposta:** utilizando-se dos mesmos valores, mas dessa vez com o range de 16 bits de um `branch`, também seria impossível alcançar essa instrução.
 
 ### 2.42
 
 If the current value of the PC is 0x1FFFf000, can you use a single branch instruction to get to the PC address as shown in Exercise 2.39?
 
-*Resposta:* convertendo o valor `0x1fff f000` pra binário temos `0001 1111 1111 1111 1111 0000 0000 000`
+**Resposta:** partindo de `0x1fff f000` e adicionando o range máximo de um branch `+ 4 + 0x1FFFC` (lembrando sempre de adicionar o +4 do PC+4) chegamos em `0x2001 F000`, endereço superior ao `0x2001 4924` do exercício 39, portanto conseguimos chegar sim.
 
 ### 2.43
 

@@ -152,3 +152,19 @@ E é isso, o MIPS utiliza apenas essas instruções para implementar comparaçõ
 slt $t0, $s0, $s1       # $t0 = 1, se $s0 < $s1
 bne $t0, $zero, Less    # vá para “Less”, se $t0 0 ($s0 < $s1)
 ```
+
+### Bonus round 2: tabela de alcances
+
+Fazendo um resumo de todos os modos possíveis de criar um desvios, partindo do menor alcance para o maior, temos:
+
+1. Branches (beq, bne):
+
+**Alcance**: [-2^15, +2^15] relativo a PC+4
+
+2. Jump (j):
+
+**Alcance**: Os 26 bits do campo const, deslocados a esquerda, `26bits << 2` Substitui os 28 LSBs de PC
+
+3. Jump register (jr):
+
+**Alcance**: Toda a memória capaz de ser indexada por um registrador, visto que ele faz PC = $registrador

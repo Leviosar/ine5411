@@ -1,7 +1,5 @@
 # Sumário
 
-Contribuições em [INE5411](https://github.com/Leviosar/ine5411).
-
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZZ59R7FLW7"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -17,7 +15,11 @@ Contribuições em [INE5411](https://github.com/Leviosar/ine5411).
     - [Operações lógicas e relacionais](./notas/aex04.1.md)
     - [Jump Address Table (JAT)](./notas/aex04.2.md)
     - [Suporte a procedimentos](./notas/aex05.md)
-    - [Benchmark](./notas/aex10.md)
+    - [Suporte a inteiros compactos e constantes](./notas/aex06.md)
+    - [Comparação com arquitetura ARM](./notas/aex07.md)
+    - [Suporte para aritmética inteira e sincronização de threads](./notas/aex08.md)
+    - [Desempenho](./notas/aex10.md)
+    - [Desempenho: Benchmark](./notas/aex11.md)
     - [Montador](./notas/aex12.md)
     - [Ligador estático](./notas/aex13.1.md)
     - [Ligador dinâmico](./notas/aex13.2.md)
@@ -28,6 +30,7 @@ Contribuições em [INE5411](https://github.com/Leviosar/ine5411).
     - [Memória virtual](./notas/aex27.md)
 - [Exercícios](./exercicios/README.md)
     - [Resolução de exercícios do livro](./exercicios/livro/README.md)
+        - [Capítulo 1](./exercicios/livro/capitulo_1/README.md)
         - [Capítulo 2](./exercicios/livro/capitulo_2/README.md)
 - [Provas](./exercicios/README.md)
     - [Prova 1](./exercicios/provas/1/README.md)
