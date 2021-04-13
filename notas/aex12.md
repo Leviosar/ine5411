@@ -44,3 +44,25 @@ No MIPS, para evitar conflito de registradores, as pseudoinstruções possuem um
 ### Layout de memória
 
 ![Layout de memória do MIPS implementado no simulador MARS](https://imgur.com/bAwm2kx.png)
+
+No modelo acima, podemos ver por exemplo que a parte reservada para o código da aplicação (text) possui 252 MB (seriam 256 caso não houvessem 4 MB reservados). Logo acima temos uma área bem pequena reservada para dados estáticos e por última temos a área de dados dinâmicos, ocupada simultâneamente pela stack e pela heap que crescem em direções concorrentes para poderem usar melhor o tamanho total da área reservada. 
+
+Perceba que na imagem tudo isso corresponde a 2GB, mas sabemos que o MIPS 32 pode endereçar até 4GB de memória, então para o que está sendo usado o resto? São 2 GBs reservados para o funcionamento do SO.
+
+- Pilha: guarda variáveis que não puderam por algum motivo serem alocadas em registradores ou que precisaram ser salvas em chamadas de procedimentos.
+- Heap: guarda estruturas de dados, principalmente as que trabalham com ponteiros como listas encadeadas e semelhantes.
+- Static: guarda variáveis alocadas de forma estática, que vão permanecer alocadas durante todo o programa. Em C podemos alocar uma variável estática utilizando a keyword `static`.
+
+### Formato do arquivo objeto
+
+- Object file header: tamanho e posição das outras seções
+
+- Text segment: código em linguagem de máquina
+
+- Static data segment: segmento de dados estáticos (que vão parar naquele espaço de 64k)
+
+- Relocation information: instruções e dados que dependem de endereços absolutos
+
+- Symbol table: lista de referências a chamadas externas.
+
+- Debugging information: informações da compilação.
