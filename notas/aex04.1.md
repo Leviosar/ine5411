@@ -159,7 +159,7 @@ Fazendo um resumo de todos os modos possíveis de criar um desvios, partindo do 
 
 1. Branches (beq, bne):
 
-**Alcance**: [-2^15, +2^15] relativo a PC+4
+**Alcance**: [-2^17, +2^15] relativo a PC+4, ± `0x1 FFFC`
 
 2. Jump (j):
 
