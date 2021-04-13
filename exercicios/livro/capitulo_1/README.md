@@ -101,3 +101,37 @@ B → CPI = 1.5 / 1 × 10⁻⁹ × 1.2 × 10⁹ = 1.5 / 1.2 = 1.25
 ## 1.7.2
 
 Assume the compiled programs run on two different processors. If the execution times on the two processors are the same, how much faster is the clock of the processor running compiler A’s code versus the clock of the processor running compiler B’s code?
+
+**Resposta:**
+
+Queremos encontrar uma relação entre as frequências de dois processadores que executam dois programas compilados de forma diferente no mesmo tempo. Podemos então desprezar o tempo e trabalhar apenas com I e CPI (que já temos calculados). A relação deve considerar o "pior" compilador como a parte de cima da fração, então temos que:
+
+```
+F(B) / F(A) = [I(B) × CPI(B)] / [I(A) × CPI(A)]
+F(B) / F(A) = [1.2 × 10⁹ × 1.25] / [1 × 10⁹ × 1.1]
+F(B) / F(A) = [1.5 × 10⁹] / [1.1 × 10⁹]
+F(B) / F(A) = 1.5 / 1.1 = 1.3636_
+```
+
+## 1.7.3
+
+A new compiler is developed that uses only 6.0E8 instructions and has an average CPI of 1.1. What is the speedup of using this new compiler versus using
+compiler A or B on the original processor?
+
+**Resposta:**
+
+Primeiro, precisamos pegar o tempo de execução do código gerado por esse novo compilador, para isso usamos `TEXEC = I × CPI × T`
+
+```
+TEXEC = 6 × 10⁸ × 1.1 × 1 × 10⁻⁹
+TEXEC = 6.6 × 10⁻¹ = 0.66s
+```
+
+Com o tempo calculado fazemos `Tempo antigo / Tempo novo` para encontra o speedup
+
+```
+Speedup(A) = 1.1 / 0.66 = 1.66
+Speedup(B) = 1.5 / 0.66 = 2.27_
+```
+
+# 1.8 
