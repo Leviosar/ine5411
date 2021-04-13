@@ -26,3 +26,7 @@ Chamadas de funções e jumps que usam modo absoluto podem conter referências a
 Referências de dados
 
 Para editar e resolver as diferenças o ligador utiliza a tabela de símbolos que foi gerada pelo montador previamente.
+
+## Pressupostos da montagem
+
+Quando um montador prepara o arquivo objeto, ele não tem nenhum conhecimento sobre outros arquivos do programa, portanto a única opção dele é tratar o arquivo atual como o único no programa. Com isso, ele coloca sempre os mesmos endereços iniciais para os segmentos de texto e dados por exemplo. É trabalho do ligador resolver esses "conflitos" pelo processo de relocação, onde ele move um objeto de uma faixa de endereços para outra, eliminando os conflitos.
