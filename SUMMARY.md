@@ -28,7 +28,7 @@
     - [Hazards](./notas/aex16.md)
     - [Emissão múltipla](./notas/aex17.md)
     - [Princípios de cache - 1](./notas/aex21.md)
-    - [Princípios de cache - 2](./notas/aex21.md)
+    - [Princípios de cache - 2](./notas/aex22.md)
     - [Memória virtual](./notas/aex27.md)
 - [Exercícios](./exercicios/README.md)
     - [Resolução de exercícios do livro](./exercicios/livro/README.md)
