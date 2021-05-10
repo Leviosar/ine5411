@@ -37,7 +37,7 @@
         - [Capítulo 1](./exercicios/livro/capitulo_1/README.md)
         - [Capítulo 2](./exercicios/livro/capitulo_2/README.md)
         - [Capítulo 4](./exercicios/livro/capitulo_4/README.md)
-        - [Capítulo 4](./exercicios/livro/capitulo_5/README.md)
+        - [Capítulo 5](./exercicios/livro/capitulo_5/README.md)
 - [Provas](./exercicios/README.md)
     - [Prova 1](./exercicios/provas/1/README.md)
     - [Prova 2](./exercicios/provas/2/README.md)
